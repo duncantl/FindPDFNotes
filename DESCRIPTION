@@ -1,0 +1,19 @@
+Package: FindPDFNotes
+Title: Find pages in PDF documents with Hand-written Notes
+Description: Annotating notes on a PDF document on  tablet is convenient.
+ For large documents, it is covenient to be able to jump straight to the
+ pages with those hand-written notes rather than having to scroll through
+ the pages, possibly missing small marks such as deletions.
+ This very small collection of functions is  a personal utility for finding
+ these pages.
+ It tells us how many pages have annotations.  It also displays each page  using the default PDF viewer.
+ Currently, this is just for OSX. One can define methods for Linux and Windows.
+ This uses a modified version of pdftohtml to create an XML description of the
+ PDF.  We then look for <coords> nodes.
+ This can identify false-positives  where a <coords> node is actually part of
+ the original document, e.g., in a figure, plot, etc.
+Imports: ReadPDF, XML
+Version: 0.1-0
+Author: Duncan Temple Lang <dtemplelang@ucdavis.edu>
+Maintainer: Duncan Temple Lang <dtemplelang@ucdavis.edu>
+License: BSD
