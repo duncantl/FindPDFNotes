@@ -6,5 +6,5 @@ function()
 
 
 skim =
-function(file, page, script = system.file("skim.scpt", package = "FindPDFNotes"))
+function(file, page, script = system.file("Scripts/skim.scpt", package = "FindPDFNotes"))
    system(sprintf("osascript %s %s %d", script, shQuote(path.expand(file)), as.integer(page)), intern = TRUE)
