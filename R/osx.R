@@ -7,4 +7,26 @@ function()
 
 skim =
 function(file, page, script = system.file("Scripts/skim.scpt", package = "FindPDFNotes"))
-   system(sprintf("osascript %s %s %d", script, shQuote(path.expand(file)), as.integer(page)), intern = TRUE)
+    osaScript(file, page, script)
+
+preview =
+function(file, page, script = system.file("Scripts/preview.scpt", package = "FindPDFNotes"))
+    osaScript(file, page, script)
+
+osaScript =
+function(file, page, script)
+    system(sprintf("osascript %s %s %d", script, shQuote(path.expand(file)), as.integer(page)), intern = TRUE)
+
+
+
+# Find the default handler for an app.
+
+# /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump
+
+# duti - installed
+#  https://github.com/moretension/duti.git
+#   run autoupdate to generate configure and then ./configure
+
+# https://developer.apple.com/documentation/coreservices/launch_services
+
+# system_profiler SPApplicationsDataType
