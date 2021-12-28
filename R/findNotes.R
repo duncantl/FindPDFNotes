@@ -30,6 +30,7 @@ mkXPathQuery =
     # mkXPathQuery(c("red"))
     # mkXPathQuery(c("red"), .5)
     # mkXPathQuery(data.frame(c("red", "blue"), c(.872, .5)))
+    #
 function(color = character(), lwd = numeric(), and = is.data.frame(color))
 {
     if((missing(color) && missing(lwd)) || (length(color) == 0 && length(lwd) == 0))
@@ -43,9 +44,12 @@ function(color = character(), lwd = numeric(), and = is.data.frame(color))
         color = color[[1]]
     }
 
+    # Note we use %s for the lineWidth  even though the values are numeric.
+    # In XPath, we are comparing to strings so we want the formatting to be exactly as is.
+    # We could compare as real-valued numbers and so (@lineWidth - %f) < value.
     if(length(color) && length(lwd)) 
         sub = paste(sprintf("(@stroke.color = '%s' %s @lineWidth = '%s')", color, if(and) "and" else "or", lwd), collapse = " or ")
-    else  if(length(color) > 0) 
+    else if(length(color) > 0) 
         sub = paste(sprintf("@stroke.color = '%s'", color), collapse = " or ")
     else
         sub = paste(sprintf("@lineWidth = '%s'", lwd), collapse = " or ")        
