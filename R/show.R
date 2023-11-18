@@ -1,8 +1,11 @@
 showPage =
-function(file, page)
+function(file, page = integer())
 {
     Open(file)
-    skim(file, page)
+    switch(Sys.info()['sysname'],
+           Darwin =  skim(file, page),  # should look at what default app is for opening.
+           Windows =,
+           Linux = evince(file, page))
 }
 
 
