@@ -3,6 +3,6 @@ import(XML)
 
 export(findNotes)
 export(display)
-S3method("print", "PageNumbers")
+#S3method("print", "PageNumbers")
 S3method("display", "PageNumbers")
 
