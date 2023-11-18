@@ -20,7 +20,9 @@ function(file, page, script)
 
 
 # Find the default handler for an app.
+# https://apple.stackexchange.com/questions/276408/terminal-command-to-list-application-defaults
 
+#
 # /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump
 
 # duti - installed
